@@ -14,10 +14,10 @@ app.set('view engine', 'ejs');
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log("✅ MongoDB connected"))
   .catch(err => console.error(err));
-
+  const port = process.env.PORT || 3000;
 // Routes
 app.use('/', userRoutes);
 
-app.listen(3000, () => {
+app.listen(port, '0.0.0.0',() => {
   console.log('🚀 Server running on http://localhost:3000');
 });
